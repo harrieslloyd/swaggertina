@@ -1,4 +1,4 @@
-export default function Header(props) {
+export const Header = (props) => {
     return (
         <header>
             <table>
