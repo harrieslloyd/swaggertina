@@ -1,8 +1,8 @@
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { Layout } from "../components/Layout";
+import { Layout } from "../components/Layout.js";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { client } from "../tina/__generated__/client";
-import { Header } from "../components/Header";
+import { Header } from "../components/Header.js";
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
