@@ -8,6 +8,12 @@ export default {
   format: "mdx",
   fields: [
     {
+      name: "title",
+      label: "Title",
+      type: "string",
+      required: true
+    },
+    {
       name: "body",
       label: "Main Content",
       type: "rich-text",
@@ -19,7 +25,9 @@ export default {
       if (document._sys.filename === "home") {
         return `/`;
       }
-      return undefined;
+      else {
+        return `/${document._sys.filename}`;
+      }
     },
   },
 };

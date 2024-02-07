@@ -1,0 +1,16 @@
+query pageWithNav($relativePath: String!) {
+  pageConnection {
+    edges {
+      node {
+        id
+        title
+        _sys {
+            filename
+        }
+      }
+    }
+  }
+  page(relativePath: $relativePath) {
+    ...PageParts
+  }
+}
