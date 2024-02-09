@@ -19,6 +19,7 @@ export const config = defineConfig({
       publicFolder: "public",
       mediaRoot: "uploads",
     },
+    loadCustomStore: async () => {},
   },
   build: {
     publicFolder: "public", // The public asset folder for your framework
