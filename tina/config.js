@@ -29,7 +29,7 @@ export const config = defineConfig({
   },
   search: {
     tina: {
-      indexerToken: process.ENV.TINA_SEARCH_TOKEN,
+      indexerToken: process.env.TINA_SEARCH_TOKEN,
       stopwordLanguages: ['eng'],
     },
     indexBatchSize: 100,

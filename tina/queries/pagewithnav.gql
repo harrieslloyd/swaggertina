@@ -4,6 +4,7 @@ query pageWithNav($relativePath: String!) {
       node {
         id
         title
+        navtitle
         _sys {
             filename
         }
