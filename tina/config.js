@@ -9,16 +9,10 @@ export const config = defineConfig({
     process.env.HEAD, // Netlify branch env
   token: process.env.TINA_TOKEN,
   media: {
-    // If you wanted cloudinary do this
-    loadCustomStore: async () => {
-      const pack = await import("next-tinacms-cloudinary");
-      return pack.TinaCloudCloudinaryMediaStore;
+    tina: {
+      publicFolder: 'public',
+      mediaRoot: 'uploads',
     },
-    // this is the config for the tina cloud media store
-    // tina: {
-    //   publicFolder: "public",
-    //   mediaRoot: "uploads",
-    // },
   },
   build: {
     publicFolder: "public", // The public asset folder for your framework
