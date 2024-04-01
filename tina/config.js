@@ -11,7 +11,7 @@ export const config = defineConfig({
   media: {
     tina: {
       publicFolder: 'public',
-      mediaRoot: 'uploads',
+      mediaRoot: 'media',
     },
   },
   build: {
