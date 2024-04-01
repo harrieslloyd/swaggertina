@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "next": "^12.0.4",
-    "next-tinacms-cloudinary": "^4.4.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "tinacms": "^1.5.28"
