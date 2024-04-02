@@ -1,4 +1,7 @@
 module.exports = {
+  experimental: {
+    concurrentFeatures: true,
+  },
   async rewrites() {
     return [
       {

@@ -62,9 +62,7 @@ export default function Home(props) {
                                 return <TextArea key={index} last={lastclass} text={block.text} />
                             case 'PageBlocksEvents':
                                 return (
-                                    <Suspense key={index} fallback={<span>Loading...</span>}>
-                                        <EventTable last={lastclass} text={block.text} />
-                                    </Suspense>
+                                      <EventTable last={lastclass} text={block.text} />
                                 )
                         }
                         return <p>This isn't working</p>
