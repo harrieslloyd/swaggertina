@@ -79,6 +79,7 @@ export default function Home(props) {
                   if (page.node._sys.filename == 'home') slug = ''; else slug = page.node._sys.filename;
                   var name
                   if (page.node.navtitle != '') name = page.node.navtitle; else name = page.node.title;
+                  
                   return <th key={index} className="navcol"><a href={"/" + slug}>{name}</a></th>
                 })
               }
