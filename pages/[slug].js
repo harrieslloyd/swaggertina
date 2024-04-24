@@ -1,12 +1,14 @@
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Layout } from "../components/Layout.js";
 import { tinaField, useTina } from "tinacms/dist/react";
-import { client } from "../tina/__generated__/client";
+import { client } from "../tina/__generated__/client.js";
 import { Contact } from "../components/contact.js";
 import { EventTable } from "../components/eventtable.js";
 import { Listen } from "../components/listen.js";
 import { TextArea } from "../components/textarea.js";
+import { Shop } from "../components/shop.js"
 import fetch from 'node-fetch';
+import { useEffect } from "react";
 
 async function getData(dataID) { 
   function RemoveHTMLTags(s) {
@@ -50,7 +52,6 @@ async function getData(dataID) {
   const x = a.match(lineRegex).map((row) => 
       row.match(datumRegex).map((datum) => datum.replace(/^,?"?|"$/g, "").trim()),
   );
-  console.log(x)
   return x;
 };
 
@@ -62,7 +63,6 @@ export default function Home(props) {
     data: props.props.data,
   });
 
-  console.log(props.eventData)
 
   const pages = data.pageConnection.edges;
   pages.sort(function (x, y) { return x.node._sys.filename == 'home' ? -1 : y.node._sys.filename == 'home' ? 1 : 0; });
@@ -74,7 +74,6 @@ export default function Home(props) {
             <tr>
               {
                 pages.map((page, index) => {
-                  console.log(page)
                   var slug
                   if (page.node._sys.filename == 'home') slug = ''; else slug = page.node._sys.filename;
                   var name
@@ -111,11 +110,11 @@ export default function Home(props) {
             case 'PageBlocksTextarea':
               return <TextArea key={index} last={lastclass} text={block.text} />
             case 'PageBlocksEvents':
-              return (
-                  <EventTable last={lastclass} text={block.text} data={props.eventData} />
-              )
+              return <EventTable key={index} last={lastclass} text={block.text} data={props.eventData} />
+            case 'PageBlocksShop':
+              return <Shop key={index} last={lastclass} title={block.title} shop={data.shopConnection.edges} />
           }
-          return <p>This isn't working</p>
+          return <p>An error occured.</p>
         })
       }
     </Layout>
@@ -125,7 +124,7 @@ export default function Home(props) {
 // This is an example of a page generated with Serverside Rendering.
 // This can be switched to a static page by using getStaticProps
 export const getServerSideProps = async ({ params }) => {
-  const { data, query, variables } = await client.queries.pageWithNav({
+  const { data, query, variables } = await client.queries.pageQuery({
     relativePath: `${params.slug}.mdx`,
   });
   const eventData = await getData()

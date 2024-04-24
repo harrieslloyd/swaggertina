@@ -1,0 +1,31 @@
+query pageQuery($relativePath: String!) {
+  pageConnection {
+    edges {
+      node {
+        id
+        title
+        navtitle
+        _sys {
+            filename
+        }
+      }
+    }
+  }
+  shopConnection {
+    edges {
+      node {
+        id
+        name
+        price
+        desc
+        image
+        _sys {
+            filename
+        }
+      }
+    }
+  }
+  page(relativePath: $relativePath) {
+    ...PageParts
+  }
+}

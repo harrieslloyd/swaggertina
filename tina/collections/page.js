@@ -92,6 +92,17 @@ export default {
               type: 'string',
             }
           ]
+        },
+        {
+          name: "shop",
+          label: "Shop",
+          fields: [
+            {
+              name: "title",
+              label: "Title",
+              type: 'string',
+            }
+          ]
         }
       ]
     }
