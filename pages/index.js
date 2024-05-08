@@ -6,6 +6,7 @@ import { Contact } from "../components/contact.js";
 import { EventTable } from "../components/eventtable.js";
 import { Listen } from "../components/listen.js";
 import { TextArea } from "../components/textarea.js";
+import { Links } from "../components/links.js";
 
 export default function Home(props) {
   // data passes though in production mode and data is updated to the sidebar data in edit-mode
@@ -50,24 +51,26 @@ export default function Home(props) {
                 }
       </section>
       {
-                    data.page.blocks.map((block, index, array) => {
-                        var lastclass
-                        if(index === array.length-1) lastclass = true; else lastclass = false;
-                        switch(block.__typename) {
-                            case 'PageBlocksListen':
-                                return <Listen key={index} last={lastclass} title={block.title} />
-                            case 'PageBlocksContact':
-                                return <Contact key={index} last={lastclass} title={block.title} />
-                            case 'PageBlocksTextarea':
-                                return <TextArea key={index} last={lastclass} text={block.text} />
-                            case 'PageBlocksEvents':
-                                return (
-                                      <EventTable last={lastclass} text={block.text} />
-                                )
-                        }
-                        return <p>This isn't working</p>
-                    })
-            }
+        data.page.blocks.map((block, index, array) => {
+          var lastclass
+          if (index === array.length - 1) lastclass = true; else lastclass = false;
+          switch (block.__typename) {
+            case 'PageBlocksListen':
+              return <Listen key={index} last={lastclass} title={block.title} />
+            case 'PageBlocksContact':
+              return <Contact key={index} last={lastclass} title={block.title} />
+            case 'PageBlocksTextarea':
+              return <TextArea key={index} last={lastclass} text={block.text} />
+            case 'PageBlocksEvents':
+              return (
+                  <EventTable key={index} last={lastclass} text={block.text} data={props.eventData} />
+              )
+            case 'PageBlocksLinks':
+              return <Links key={index} last={lastclass} title={block.title} links={block.links}/>
+          }
+          return <p>This isn't working</p>
+        })
+      }
     </Layout>
   );
 }

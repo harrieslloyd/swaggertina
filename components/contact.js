@@ -6,7 +6,13 @@ export const Contact = (props) => {
                <script src="email.js"></script>
                 <div className="textwrap">
                     
-                  <h1>{props.title}</h1>
+                {
+                (() => {
+                    if(props.title != '') {
+                        return <h1>{props.title}</h1>
+                    }
+                })()
+                }
                   <form id="contactform">
                     <div id="contactmeta">
                       <input id="contactemail" type="email" placeholder="Enter your email" name="email" />

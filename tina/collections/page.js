@@ -56,7 +56,7 @@ export default {
           fields: [
             {
               name: "title",
-              label: "Title",
+              label: "Title (Optional)",
               type: 'string',
             }
           ]
@@ -72,7 +72,7 @@ export default {
           fields: [
             {
               name: "title",
-              label: "Title",
+              label: "Title (Optional)",
               type: 'string',
             }
           ]
@@ -88,22 +88,94 @@ export default {
           fields: [
             {
               name: "title",
-              label: "Title",
+              label: "Title (Optional)",
               type: 'string',
+            },
+            {
+              name: "type",
+              label: "Display Type",
+              type: "string",
+              options: [
+                {
+                  value: 'long',
+                  label: 'Long',
+                },
+                {
+                  value: 'short',
+                  label: 'Short',
+                },
+              ]
+            }
+          ]
+        },
+        {
+          name: "links",
+          label: "Links",
+          defaultItem: () => {
+            return {
+              title: 'Links',
+            }
+          },
+          fields: [
+            {
+              name: "title",
+              label: "Title (Optional)",
+              type: 'string',
+            },
+            {
+              name: "links",
+              label: "Pages",
+              type: 'object',
+              list: true,
+              required: true,
+              fields: [
+                {
+                  name: "label",
+                  label: "Label",
+                  type: "string"
+                },
+                {
+                  name: "href",
+                  label: "Link",
+                  type: 'string',
+                  required: true,
+                },
+                {
+                  name: "img",
+                  label: "Image (Optional)",
+                  type: "image"
+                },
+                {
+                  name: "textcol",
+                  label: "Text Color",
+                  type: "string",
+                  required: true,
+                  options: [
+                    {
+                      value: "black",
+                      label: "Black"
+                    },
+                    {
+                      value: "white",
+                      label: "White"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
       ]
     }
   ],
-  ui: {
-    router: ({ document }) => {
-      if (document._sys.filename === "home") {
-        return `/`;
-      }
-      else {
-        return `/${document._sys.filename}`;
-      }
-    },
-  },
+  // ui: {
+  //   router: ({ document }) => {
+  //     if (document._sys.filename === "home") {
+  //       return `/`;
+  //     }
+  //     else {
+  //       return `/${document._sys.filename}`;
+  //     }
+  //   },
+  // },
 };

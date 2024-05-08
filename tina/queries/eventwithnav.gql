@@ -1,0 +1,17 @@
+query eventWithNav {
+  pageConnection {
+    edges {
+      node {
+        id
+        title
+        navtitle
+        _sys {
+          filename
+        }
+      }
+    }
+  }
+  events(relativePath: "event.mdx") {
+    ...EventsParts
+  }
+}

@@ -7,6 +7,7 @@ import { EventTable } from "../components/eventtable.js";
 import { Listen } from "../components/listen.js";
 import { TextArea } from "../components/textarea.js";
 import fetch from 'node-fetch';
+import { Links } from "../components/links.js";
 
 async function getData(dataID) { 
   function RemoveHTMLTags(s) {
@@ -112,8 +113,10 @@ export default function Home(props) {
               return <TextArea key={index} last={lastclass} text={block.text} />
             case 'PageBlocksEvents':
               return (
-                  <EventTable last={lastclass} text={block.text} data={props.eventData} />
+                  <EventTable key={index} last={lastclass} title={block.title} data={props.eventData} type={block.type} />
               )
+            case 'PageBlocksLinks':
+              return <Links key={index} last={lastclass} title={block.title} links={block.links}/>
           }
           return <p>This isn't working</p>
         })
