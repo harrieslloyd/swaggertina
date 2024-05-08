@@ -71,8 +71,6 @@ export default function Home(props) {
         data: props.props.data,
     });
 
-    console.log(props.data)
-
     const pages = data.pageConnection.edges;
     pages.sort(function (x, y) { return x.node._sys.filename == 'home' ? -1 : y.node._sys.filename == 'home' ? 1 : 0; });
     return (
@@ -83,7 +81,6 @@ export default function Home(props) {
                         <tr>
                             {
                                 pages.map((page, index) => {
-                                    console.log(page)
                                     var slug
                                     if (page.node._sys.filename == 'home') slug = ''; else slug = page.node._sys.filename;
                                     var name
@@ -108,7 +105,7 @@ export default function Home(props) {
                             width="600"
                             height="450"
                             loading="lazy"
-                            allowfullscreen
+                            allowFullScreen
                             referrerpolicy="no-referrer-when-downgrade"
                             src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAw6YSYIQmmBgxC6XLrxsVcjXJOeciQ-jE
                         &q=${props.eventData[props.slug][2]}`}>

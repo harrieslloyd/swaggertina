@@ -1,7 +1,6 @@
 export const Links = (props) => {
     var lastclass
     if (props.last) lastclass = "last"; else lastclass = '';
-    console.log(props.title != '')
     return (
         <section className={"mainsection " + lastclass}>
             <div className="textwrap">
@@ -14,9 +13,9 @@ export const Links = (props) => {
                 }
                 <div id="linkwrap">
                 { 
-                    props.links.map((link) => {
+                    props.links.map((link, index) => {
                             return (
-                                <a id="link" href={link.href}><div style={{ backgroundImage: `url("${link.img}")` }} className="circle">
+                                <a id="link" key={index} href={link.href}><div style={{ backgroundImage: `url("${link.img}")` }} className="circle">
                                 <span style={{color: link.textcol}} id="text">{link.label}</span>
                                 </div></a>
                             )

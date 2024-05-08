@@ -3,7 +3,7 @@ export const Contact = (props) => {
     if(props.last) lastclass = "last"; else lastclass = '';
     return (
             <section className={"mainsection " + lastclass}>
-               <script src="email.js"></script>
+               <script src="email.js" ></script>
                 <div className="textwrap">
                     
                 {

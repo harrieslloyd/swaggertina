@@ -23,16 +23,15 @@ export const EventTable = (props) => {
     var lastclass
     if (props.last) lastclass = "last"; else lastclass = '';
     let x = props.data
-    console.log(x)
     if (props.type == "long") {
         return (
             <section className={"mainsection " + lastclass}>
                 {
-                (() => {
-                    if(props.title != '') {
-                        return <h1>{props.title}</h1>
-                    }
-                })()
+                    (() => {
+                        if (props.title != '') {
+                            return <h1>{props.title}</h1>
+                        }
+                    })()
                 }
                 <table id="eventtable">
                     <tbody>
@@ -57,24 +56,24 @@ export const EventTable = (props) => {
         return (
             <section className={"mainsection eventssection" + lastclass}>
                 {
-                (() => {
-                    if(props.title != '') {
-                        return <h1>{props.title}</h1>
-                    }
-                })()
+                    (() => {
+                        if (props.title != '') {
+                            return <h1>{props.title}</h1>
+                        }
+                    })()
                 }
                 <div id="car">
-                <Carousel width={size.width * 0.7} showStatus={false} showThumbs={false} showIndicators={false} showArrows centerMode emulateTouch swipeable>
-                        {x.map((event) => (
-                            <a href={`/event/${x.indexOf(event)}`} id="caritemlink">
-                            <div className="caritem" key={x.indexOf(event)}><div>
+                    <Carousel width={size.width * 0.7} showStatus={false} showThumbs={false} showIndicators={false} showArrows centerMode emulateTouch swipeable>
+                        {x.map((event, index) => (
+                            <a key={index} href={`/event/${x.indexOf(event)}`} id="caritemlink">
+                                <div className="caritem" key={x.indexOf(event)}><div>
                                     <h3>{event[1]}</h3>
                                     <span>{new Date(event[0]).toLocaleString(undefined, options)}</span>
-                            </div>
-                            </div>
+                                </div>
+                                </div>
                             </a>
                         ))}
-                </Carousel>
+                    </Carousel>
                 </div>
             </section>
         )
@@ -86,29 +85,29 @@ function useWindowSize() {
     // Initialize state with undefined width/height so server and client renders match
     // Learn more here: https://joshwcomeau.com/react/the-perils-of-rehydration/
     const [windowSize, setWindowSize] = useState({
-      width: undefined,
-      height: undefined,
+        width: undefined,
+        height: undefined,
     });
-  
+
     useEffect(() => {
-      // only execute all the code below in client side
-      // Handler to call on window resize
-      function handleResize() {
-        // Set window width/height to state
-        setWindowSize({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        });
-      }
-      
-      // Add event listener
-      window.addEventListener("resize", handleResize);
-       
-      // Call handler right away so state gets updated with initial window size
-      handleResize();
-      
-      // Remove event listener on cleanup
-      return () => window.removeEventListener("resize", handleResize);
+        // only execute all the code below in client side
+        // Handler to call on window resize
+        function handleResize() {
+            // Set window width/height to state
+            setWindowSize({
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+        }
+
+        // Add event listener
+        window.addEventListener("resize", handleResize);
+
+        // Call handler right away so state gets updated with initial window size
+        handleResize();
+
+        // Remove event listener on cleanup
+        return () => window.removeEventListener("resize", handleResize);
     }, []); // Empty array ensures that effect is only run on mount
     return windowSize;
-  }
+}

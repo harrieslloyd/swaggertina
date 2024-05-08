@@ -51,7 +51,6 @@ async function getData(dataID) {
   const x = a.match(lineRegex).map((row) => 
       row.match(datumRegex).map((datum) => datum.replace(/^,?"?|"$/g, "").trim()),
   );
-  console.log(x)
   return x;
 };
 
@@ -63,7 +62,6 @@ export default function Home(props) {
     data: props.props.data,
   });
 
-  console.log(props.eventData)
 
   const pages = data.pageConnection.edges;
   pages.sort(function (x, y) { return x.node._sys.filename == 'home' ? -1 : y.node._sys.filename == 'home' ? 1 : 0; });
@@ -75,7 +73,6 @@ export default function Home(props) {
             <tr>
               {
                 pages.map((page, index) => {
-                  console.log(page)
                   var slug
                   if (page.node._sys.filename == 'home') slug = ''; else slug = page.node._sys.filename;
                   var name
@@ -118,7 +115,7 @@ export default function Home(props) {
             case 'PageBlocksLinks':
               return <Links key={index} last={lastclass} title={block.title} links={block.links}/>
           }
-          return <p>This isn't working</p>
+          return <p key={index}>This isn&apos;t working</p>
         })
       }
     </Layout>
