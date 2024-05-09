@@ -88,7 +88,7 @@ export default function Home(props) {
       <section className="titlesection" data-tina-field={tinaField(data.page, "background")} style={{ background: `linear-gradient( rgba(29, 31, 29, 0.75), rgba(29, 31, 29, 0.75) ), url(${data.page.background})` }}>
         {
           (() => {
-            if (data.page.titleimage == null) {
+            if (data.page.titleimage == null || data.page.titleimage == '') {
               return <h1 data-tina-field={tinaField(data.page, "title")}>{data.page.title}</h1>
             }
             else {

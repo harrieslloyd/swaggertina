@@ -106,7 +106,7 @@ export default function Home(props) {
                             height="450"
                             loading="lazy"
                             allowFullScreen
-                            referrerpolicy="no-referrer-when-downgrade"
+                            referrerPolicy="no-referrer-when-downgrade"
                             src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyAw6YSYIQmmBgxC6XLrxsVcjXJOeciQ-jE
                         &q=${props.eventData[props.slug][2]}`}>
                         </iframe>
