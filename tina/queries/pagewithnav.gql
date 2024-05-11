@@ -1,15 +1,19 @@
 query pageWithNav($relativePath: String!) {
-  pageConnection {
-    edges {
-      node {
-        id
-        title
-        navtitle
-        _sys {
+  general(relativePath: "general.mdx") {
+    order {
+      page {
+        ... on Document {
+          _sys {
             filename
+          }
+        }
+        ... on Page {
+          title
         }
       }
+      navname
     }
+    fav
   }
   page(relativePath: $relativePath) {
     ...PageParts

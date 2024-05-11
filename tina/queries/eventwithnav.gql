@@ -1,15 +1,19 @@
 query eventWithNav {
-  pageConnection {
-    edges {
-      node {
-        id
-        title
-        navtitle
-        _sys {
-          filename
+  general(relativePath: "general.mdx") {
+    order {
+      page {
+        ... on Document {
+          _sys {
+            filename
+          }
+        }
+        ... on Page {
+          title
         }
       }
+      navname
     }
+    fav
   }
   events(relativePath: "event.mdx") {
     ...EventsParts

@@ -71,10 +71,9 @@ export default function Home(props) {
         data: props.props.data,
     });
 
-    const pages = data.pageConnection.edges;
-    pages.sort(function (x, y) { return x.node._sys.filename == 'home' ? -1 : y.node._sys.filename == 'home' ? 1 : 0; });
+    const pages = data.general.order;
     return (
-        <Layout>
+        <Layout fav={data.general.fav}>
             <header>
                 <table>
                     <tbody>
@@ -82,9 +81,9 @@ export default function Home(props) {
                             {
                                 pages.map((page, index) => {
                                     var slug
-                                    if (page.node._sys.filename == 'home') slug = ''; else slug = page.node._sys.filename;
+                                    if (page.page._sys.filename == 'home') slug = ''; else slug = page.page._sys.filename;
                                     var name
-                                    if (page.node.navtitle != '') name = page.node.navtitle; else name = page.node.title;
+                                    if (page.navname != '' && page.navname != null) name = page.navname; else name = page.page.title;
 
                                     return <th key={index} className="navcol"><a href={"/" + slug}>{name}</a></th>
                                 })

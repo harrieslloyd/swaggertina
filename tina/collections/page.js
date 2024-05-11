@@ -18,8 +18,8 @@ export default {
       type: "image",
     },
     {
-      name: "navtitle",
-      label: "Navigation name (Overrides Title Text)",
+      name: "tabtitle",
+      label: "Title that goes on the browser tab (Optional)",
       type: "string"
     },
     {
