@@ -8,6 +8,7 @@ import { Listen } from "../components/listen.js";
 import { TextArea } from "../components/textarea.js";
 import fetch from 'node-fetch';
 import { Links } from "../components/links.js";
+import formatLink from "../components/formatLink.js";
 
 async function getData(dataID) { 
   function RemoveHTMLTags(s) {
@@ -85,14 +86,14 @@ export default function Home(props) {
           </tbody>
         </table>
       </header>
-      <section className="titlesection" data-tina-field={tinaField(data.page, "background")} style={{ background: `linear-gradient( rgba(29, 31, 29, 0.75), rgba(29, 31, 29, 0.75) ), url(${data.page.background})` }}>
+      <section className="titlesection" data-tina-field={tinaField(data.page, "background")} style={{ background: `linear-gradient( rgba(29, 31, 29, 0.75), rgba(29, 31, 29, 0.75) ), url(${formatLink(data.page.background)})` }}>
         {
           (() => {
             if (data.page.titleimage == null || data.page.titleimage == '') {
               return <h1 data-tina-field={tinaField(data.page, "title")}>{data.page.title}</h1>
             }
             else {
-              return <img width="500vw" data-tina-field={tinaField(data.page, "titleimage")} src={data.page.titleimage} alt="logo" />
+              return <img width="500vw" data-tina-field={tinaField(data.page, "titleimage")} src={formatLink(data.page.titleimage)} alt="logo" />
             }
           })()
         }

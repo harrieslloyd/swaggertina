@@ -1,3 +1,5 @@
+import formatLink from "./formatLink";
+
 export const Links = (props) => {
     var lastclass
     if (props.last) lastclass = "last"; else lastclass = '';
@@ -15,7 +17,7 @@ export const Links = (props) => {
                 { 
                     props.links.map((link, index) => {
                             return (
-                                <a id="link" key={index} href={link.href}><div style={{ backgroundImage: `url("${link.img}")` }} className="circle">
+                                <a id="link" key={index} href={link.href}><div style={{ backgroundImage: `url("${formatLink(link.img)}")` }} className="circle">
                                 <span style={{color: link.textcol}} id="text">{link.label}</span>
                                 </div></a>
                             )

@@ -2,6 +2,7 @@ import { Layout } from "../../components/Layout";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { client } from "../../tina/__generated__/client";
 import fetch from 'node-fetch';
+import formatLink from "../../components/formatLink";
 
 
 
@@ -92,7 +93,7 @@ export default function Home(props) {
                     </tbody>
                 </table>
             </header>
-            <section className="titlesection eventtitle" style={{ background: `linear-gradient( rgba(29, 31, 29, 0.75), rgba(29, 31, 29, 0.75) ), url(${data.events.background})` }}>
+            <section className="titlesection eventtitle" style={{ background: `linear-gradient( rgba(29, 31, 29, 0.75), rgba(29, 31, 29, 0.75) ), url(${formatLink(data.events.background)})` }}>
                 <h1>{props.eventData[props.slug][1]}</h1>
                 <h2>{new Date(props.eventData[props.slug][0]).toLocaleString(undefined, options)}</h2>
             </section>
