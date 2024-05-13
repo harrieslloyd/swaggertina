@@ -13,6 +13,25 @@ export default {
       type: "string",
     }, 
     {
+      name: "tfont",
+      label: "Title Font",
+      type: "string",
+      options: [
+        {
+          value: "Poppins",
+          label: "Poppins"
+        },
+        {
+          value: "Celtica",
+          label: "Celtica"
+        },
+        {
+          value: "Celtic_Gar",
+          label: "Celtic Garamond"
+        }
+      ]
+    },
+    {
       name: "titleimage",
       label: "Title Image (Overrides Title Text)",
       type: "image",

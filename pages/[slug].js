@@ -90,7 +90,7 @@ export default function Home(props) {
         {
           (() => {
             if (data.page.titleimage == null || data.page.titleimage == '') {
-              return <h1 data-tina-field={tinaField(data.page, "title")}>{data.page.title}</h1>
+              return <h1 style={{fontFamily: data.page.tfont}} data-tina-field={tinaField(data.page, "title")}>{data.page.title}</h1>
             }
             else {
               return <img width="500vw" data-tina-field={tinaField(data.page, "titleimage")} src={formatLink(data.page.titleimage)} alt="logo" />
