@@ -1,4 +1,3 @@
-import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Layout } from "../components/Layout.js";
 import { tinaField, useTina } from "tinacms/dist/react";
 import { client } from "../tina/__generated__/client";
@@ -9,6 +8,16 @@ import { TextArea } from "../components/textarea.js";
 import fetch from 'node-fetch';
 import { Links } from "../components/links.js";
 import formatLink from "../components/formatLink.js";
+
+import localFont from '@next/font/local'
+import { Poppins } from '@next/font/google'
+const poppins = Poppins({subsets: ['latin'], weight: '400'})
+
+ 
+// Font files can be colocated inside of `pages`
+const CELTG = localFont({ src: 'CELTG.ttf' })
+const Celtica = localFont({ src: 'Celtica-Bold.ttf' })
+
 
 async function getData(dataID) { 
   function RemoveHTMLTags(s) {
@@ -66,6 +75,12 @@ export default function Home(props) {
   const pages = data.general.order;
   var title
   if(data.page.tabtitle == null || data.page.tabtitle == '') title = data.page.title; else title = data.page.tabtitle
+
+
+  var font
+  console.log(data.page.tfont)
+  if(data.page.tfont == "Poppins") font = poppins; else if(data.page.tfont == "Celtica") font = Celtica; else if(data.page.tfont = "Celtic_Gar") font = CELTG; else font = poppins;
+  console.log(font)
   return (
     <Layout fav={data.general.fav} title={title}>
       <header>
@@ -90,7 +105,7 @@ export default function Home(props) {
         {
           (() => {
             if (data.page.titleimage == null || data.page.titleimage == '') {
-              return <h1 style={{fontFamily: data.page.tfont}} data-tina-field={tinaField(data.page, "title")}>{data.page.title}</h1>
+              return <h1 style={{fontFamily: font.style.fontFamily}} data-tina-field={tinaField(data.page, "title")}>{data.page.title}</h1>
             }
             else {
               return <img width="500vw" data-tina-field={tinaField(data.page, "titleimage")} src={formatLink(data.page.titleimage)} alt="logo" />

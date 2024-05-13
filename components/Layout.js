@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 
 export const Layout = (props) => {
+  
   return (
     <>
       <Head>

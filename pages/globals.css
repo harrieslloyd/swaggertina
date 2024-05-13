@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@font-face {
-    font-family: Celtica;
-    src: url("celtica/Celtica-Bold.ttf");
-}
 
-@font-face {
-    font-family: Celtic_Gar;
-    src: url("celtic_garamond_2nd/CELTG___.TTF");
-}
 
 body {
     margin:0;
@@ -95,7 +87,6 @@ header table tr th a:hover:after {
     justify-content: center;
     align-items: center;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient( rgba(29, 31, 29, 0.75), rgba(29, 31, 29, 0.75) ), url("/media/titleimage2.jpeg");
     color: white;
     font-size: 50px;
     background-position: center !important;
