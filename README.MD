@@ -101,3 +101,4 @@ The email system is a little complicated and I mostly followed a tutorial for it
 1. I need to set up everything on the swagger email so you can work with vercel. You need to be able to work with vercel. 
 2. We need to switch the email that contacts send to to rick or the swagger email instead of mine. 
 3. I need to comment the code because it's extremely hard to follow (I have trouble a lot of the time, and I wrote it!)
+4. I need to talk about the block system in this readme and do examples. 
