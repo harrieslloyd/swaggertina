@@ -6,6 +6,11 @@ Here's a basic overview of the file structure/how it works. In each file, I'll h
 
 ## Running the application
 
+> **Dependencies**
+> 
+> You will need [NodeJS](https://nodejs.org/en). I recommend using [Node Version Manager](https://github.com/nvm-sh/nvm). 
+
+
 To run the development application from the command line, run `npm run dev`. Remember to install npm and run `npm install` before you try to run it! 
 
 If it doesn't work due to a Tina error like "Unexpected end of JSON input" or something, try again a couple times. If it still doesn't work, delete the `/tina/__generated__` directory and try again. If it *still* doesn't run, you have a real problem. This is a slight quirk with Tina. 
