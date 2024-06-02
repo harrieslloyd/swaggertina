@@ -18,7 +18,7 @@ export const Horiz = (props) => {
                 { 
                     props.fields.map((field, index) => {
                             return (
-                                <div>
+                                <div key={index}>
                                     <img href={(field.img)} alt={field.label} />
                                     <h2>{field.label}</h2>
                                     <TinaMarkdown content={field.text} />
