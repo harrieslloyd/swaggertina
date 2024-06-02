@@ -8,7 +8,7 @@ Here's a basic overview of the file structure/how it works. In each file, I'll h
 
 To run the development application from the command line, run `npm run dev`. Remember to install npm and run `npm install` before you try to run it! 
 
-If it doesn't work due to a tina error like "check your tina config" or something, try again a couple times. If it still doesn't work, delete the `/tina/__generated__` directory and try again. If it *still* doesn't run, you have a real problem. This is a slight quirk with tina. 
+If it doesn't work due to a tina error like "Unexpected end of JSON input" or something, try again a couple times. If it still doesn't work, delete the `/tina/__generated__` directory and try again. If it *still* doesn't run, you have a real problem. This is a slight quirk with tina. 
 
 ## Next.JS & Tina
 

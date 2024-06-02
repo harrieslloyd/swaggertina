@@ -9,8 +9,8 @@ import fetch from 'node-fetch';
 import { Links } from "../components/links.js";
 import formatLink from "../components/formatLink.js";
 
-import localFont from '@next/font/local'
-import { Poppins } from '@next/font/google'
+import localFont from "next/font/local"
+import { Poppins } from "next/font/google"
 const poppins = Poppins({subsets: ['latin'], weight: '400'})
 
  
