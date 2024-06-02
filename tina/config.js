@@ -21,7 +21,7 @@ export const config = defineConfig({
     outputFolder: "admin", // within the public folder
   },
   schema: {
-    collections: [page, event, general],
+    collections: [page, event, general], //This is where you define your collections. I import the files at the top of the page and put them in this list. 
   },
   search: {
     tina: {
