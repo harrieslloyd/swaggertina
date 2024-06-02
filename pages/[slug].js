@@ -8,6 +8,7 @@ import { TextArea } from "../components/textarea.js";
 import fetch from 'node-fetch';
 import { Links } from "../components/links.js";
 import formatLink from "../components/formatLink.js";
+import { Horiz } from "../components/horiz.js";
 
 import localFont from "next/font/local"
 import { Poppins } from "next/font/google"
@@ -78,9 +79,9 @@ export default function Home(props) {
 
 
   var font
-  console.log(data.page.tfont)
   if(data.page.tfont == "Poppins") font = poppins; else if(data.page.tfont == "Celtica") font = Celtica; else if(data.page.tfont = "Celtic_Gar") font = CELTG; else font = poppins;
-  console.log(font)
+
+
   return (
     <Layout fav={data.general.fav} title={title}>
       <header>
@@ -130,6 +131,8 @@ export default function Home(props) {
               )
             case 'PageBlocksLinks':
               return <Links key={index} last={lastclass} title={block.title} links={block.links}/>
+            case 'PageBlocksHoriz':
+              return <Horiz key={index} last={lastclass} title={block.title} fields={block.fields}/>
           }
           return <p key={index}>This isn&apos;t working</p>
         })

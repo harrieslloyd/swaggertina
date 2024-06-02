@@ -183,6 +183,58 @@ export default {
               ]
             }
           ]
+        },
+        {
+          name: "horiz",
+          label: "Horizontal Text Stack",
+          defaultItem: () => {
+            return {
+              title: 'Links',
+            }
+          },
+          fields: [
+            {
+              name: "title",
+              label: "Title (Optional)",
+              type: 'string',
+            },
+            {
+              name: "fields",
+              label: "Horizontal Text",
+              type: 'object',
+              list: true,
+              required: true,
+              fields: [
+                {
+                  name: "label",
+                  label: "Label",
+                  type: "string"
+                },
+                {
+                  name: "text",
+                  label: "Text",
+                  type: 'rich-text',
+                },
+                {
+                  name: "img",
+                  label: "Image",
+                  type: "image"
+                },
+              ]
+            }
+          ]
+        },
+        {
+          name: "customhtmlblock",
+          label: "Custom HTML (NOT IMPLEMENTED DO NOT USE)",
+          fields: [
+            {
+              name: "customhtml",
+              label: "Custom HTML",
+              type: 'rich-text',
+              required: true,
+            }
+          ]
         }
       ]
     }

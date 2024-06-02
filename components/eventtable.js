@@ -63,7 +63,7 @@ export const EventTable = (props) => {
                     })()
                 }
                 <div id="car">
-                    <Carousel width={size.width * 0.7} showStatus={false} showThumbs={false} showIndicators={false} showArrows centerMode emulateTouch swipeable>
+                    <Carousel width={parseFloat(size.width) * 0.7} showStatus={false} showThumbs={false} showIndicators={false} showArrows centerMode emulateTouch swipeable>
                         {x.map((event, index) => (
                             <a key={index} href={`/event/${x.indexOf(event)}`} id="caritemlink">
                                 <div className="caritem" key={x.indexOf(event)}><div>
