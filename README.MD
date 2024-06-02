@@ -50,3 +50,45 @@ However, you can also make your own GraphQL functions to grab data from multiple
 
 There's a GraphQL playground built into tina that you can use to play around with what you can grab from each markdown file. It's found at `localhost:3000/admin/index.html#/graphql` when you run the app. 
 
+## Site Setup
+
+I've set up the site in a way that allows for expansion. In the `/pages` directory, there are a few files. Here's what each does. 
+
+> `_app.js`
+> 
+> This is the wrapper function for the whole entire site. You don't need to do much with this. Not really sure what it does. [Docs Reference](https://nextjs.org/docs/pages/building-your-application/routing/custom-app)
+
+> `[slug].js`
+> 
+> This is the default page. It's kind of cool. It will load a page for any slug that comes after `https://swaggertina.vercel.app/`. For example, when the site gets a request to `https://swaggertina.vercel.app/thisisatest`, it will run the `[slug].js` page with the slug prop `thisisatest`. You can then access the slug in the page and use it to customize the page. It's basically a way to have an infinite amount of pages. 
+
+> `index.js`
+>
+> This is the Home page. It's the exact same as the `[slug].js` page, except when the site gets a request to just `https://swaggertina.vercel.app/`, it routes to index.js instead of `[slug].js`
+
+> `globals.css`
+>
+> This is the css file for the whole site. 
+
+> `CELTG.ttf` &  `Celtica-Bold.ttf`
+>
+> These are font files. I have to store them in pages for them to work for some reason. Not sure why. 
+
+> `/event`
+>
+> This is a directory for the singular event pages. It has a `[slug].js` page inside, so any event can be loaded. It'll route to `https://swaggertina.vercel.app/event/[slug]`
+
+> `/api`
+>
+> This is an API endpoint. I use it for the email system. More on that later. 
+
+Additionally, there are some things in the `/components` folder. I import these into the pages and use them. They're little functions that I can pass props into. It's kind of like making my own html tags. I'll leave comments on each one telling you what they do, but here are the two important ones. 
+
+> `Layout.js`
+>
+> This wraps the whole site. It includes the `<head>` tag and the title and other things. If you look at `index.js` or `[slug].js`, you'll see the first component that wraps everything is `<Layout>`. That's this. 
+
+> `email-helper.ts`
+>
+> This is for the email system. Again, more on that later. 
+
