@@ -92,3 +92,12 @@ Additionally, there are some things in the `/components` folder. I import these 
 >
 > This is for the email system. Again, more on that later. 
 
+## Email System
+
+The email system is a little complicated and I mostly followed a tutorial for it (which I've since lost). Here's my basic understanding. When you have the `contact.js` component in your page, and someone enters the information, it posts to `/api/submit.js`. Then, that uses the `email-helper.ts` component to send an email using nodemailer. 
+
+## Bugs/Needed things
+
+1. I need to set up everything on the swagger email so you can work with vercel. You need to be able to work with vercel. 
+2. We need to switch the email that contacts send to to rick or the swagger email instead of mine. 
+3. I need to comment the code because it's extremely hard to follow (I have trouble a lot of the time, and I wrote it!)
